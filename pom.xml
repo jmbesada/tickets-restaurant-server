@@ -70,8 +70,7 @@
                 <reload>manual</reload>
                 <webApp>
                     <contextPath>/</contextPath>
-                </webApp>
-            </configuration>
+                </webApp>  
         </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
