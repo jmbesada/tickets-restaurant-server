@@ -1,0 +1,27 @@
+body{
+    background-color:#F3F4F8;
+}
+#container{
+    max-width:1000px;
+    margin:auto;
+    font-family: Helvetica, sans-serif
+}
+
+#userAccess .header{
+    font-weight:bold;
+    font-size:2em;
+    text-align:center;
+    color:#2C3F79;
+}
+
+#userAccess .content{
+    padding:15px;
+}
+
+#userAccess .content table{
+    width:60%
+}
+
+#userAccess .content table th{
+    color:#2C3F79;
+}

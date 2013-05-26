@@ -1,0 +1,7 @@
+com\qwi\josemi\ticketsRestaurant\controllers\StatisticsController.class
+com\qwi\josemi\ticketsRestaurant\domain\UserDocument.class
+com\qwi\josemi\ticketsRestaurant\dto\UserData.class
+com\qwi\josemi\ticketsRestaurant\dto\Movement.class
+com\qwi\josemi\ticketsRestaurant\listeners\TicketsRestaurantContextListener.class
+com\qwi\josemi\ticketsRestaurant\controllers\RobotController.class
+com\qwi\josemi\ticketsRestaurant\repository\UserRepository.class
