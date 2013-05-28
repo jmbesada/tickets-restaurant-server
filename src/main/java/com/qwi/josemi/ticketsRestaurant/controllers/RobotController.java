@@ -47,7 +47,7 @@ public class RobotController {
 		WebDriver driver=new HtmlUnitDriver(true);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://clientes.edenred.es/");
-		WebElement usernameInput=driver.findElement(By.id("UserName"));
+		WebElement usernameInput=driver.findElement(By.id("username"));
 		WebElement passwordInput=driver.findElement(By.id("Password"));
 		WebElement submitBtn=driver.findElement(By.xpath("//button[@type='submit']"));
 		usernameInput.sendKeys(username);
