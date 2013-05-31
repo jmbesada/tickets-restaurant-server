@@ -13,6 +13,9 @@
    <mvc:annotation-driven/>
    <context:component-scan base-package="com.qwi.josemi.ticketsRestaurant.controllers"/>      
    <mvc:resources location="*" mapping="*.apk"/>
-   <mvc:resources location="/assets/js/*.js" mapping="*.js"/>
-   <mvc:resources location="/assets/css/*.css" mapping="*.css"/>
+   <mvc:resources location="/assets/js/" mapping="*.js"/>
+   <mvc:resources location="/assets/css/" mapping="*.css"/>
+   <mvc:resources location="/assets/images/" mapping="images/*.png"/>
+   <mvc:resources location="/" mapping="*.html"/>
+   <mvc:resources location="/views/" mapping="views/*.html"/>
 </beans>

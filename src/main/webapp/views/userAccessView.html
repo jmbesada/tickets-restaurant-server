@@ -1,0 +1,19 @@
+<div id="userAccess">
+     <div class="header">Access user list</div>
+     <div class="content">
+        <table id="datatable">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Número de accesos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="userAccess in userAccessList">
+                    <td align="center">{{userAccess.username}}</td>
+                    <td align="center">{{userAccess.accessNumber}}</td>
+                </tr>
+            </tbody>
+        </table>
+     </div>
+</div>
