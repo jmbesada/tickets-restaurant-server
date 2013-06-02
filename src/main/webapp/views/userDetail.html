@@ -1,0 +1,22 @@
+<div id="userAccess">
+     <div class="header">Movimientos del usuario</div>
+     <p>Usuario: <span style="font-weight:bold">{{userDetail.username}}</span></p>
+     <div class="content">
+        <table tickets-datatable="userDetail.movements">
+            <thead>
+                <tr>
+                    <th>Concepto</th>
+                    <th>Cantidad</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movement in userDetail.movements">
+                    <td align="center">{{movement.concept}}</td>
+                    <td align="center">{{movement.amount}}</td>
+                    <td align="center">{{movement.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+     </div>
+</div>

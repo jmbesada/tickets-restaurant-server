@@ -39,9 +39,12 @@ public class RobotController {
 		logger.info(username+"->"+password+"-"+date);
 		UserDocument userDocument=userRepository.findByUsername(username);
 		logger.info("User found:"+userDocument);
-		if (userDocument == null) userDocument=new UserDocument(username, 1);
+		if (userDocument == null) {
+			userDocument=new UserDocument();
+			userDocument.setUsername(username);
+			userDocument.setAccessNumber(1);
+		}
 		else userDocument.setAccessNumber(userDocument.getAccessNumber()+1);
-		userRepository.save(userDocument);
 		ObjectMapper mapper=new ObjectMapper();
 		UserData userData=new UserData();
 		WebDriver driver=new HtmlUnitDriver(true);
@@ -89,6 +92,9 @@ public class RobotController {
 		}
 		userData.setMovements(movements);
 		driver.close();
+		userDocument.setBalance(userData.getAmount());
+		userDocument.setMovements(userData.getMovements());
+		userRepository.save(userDocument);
 		mapper.writeValue(response.getOutputStream(), userData);
 	}
 }

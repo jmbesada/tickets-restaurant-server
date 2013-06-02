@@ -1,9 +1,13 @@
-app.controller 'UserAccessController', ($scope, $browser, JSONService)->
+app.controller 'UserAccessController', ($scope, $rootScope, $browser, $location, JSONService)->
   console.log 'Started the UserAccessController'
   JSONService.getUserAccess().success (data)->
     $scope.userAccessList=data
-    $browser.defer ->
-      $('#datatable').dataTable
-        bFilter:false
-        aaSorting:[[1, 'desc']]
+    
  
+  
+
+  $scope.viewUserDetail= (username)->
+    JSONService.getUserInfo(username).success (data)->
+      $rootScope.userDetail=data
+      $location.path '/userDetail'
+      

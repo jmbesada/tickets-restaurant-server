@@ -1,17 +1,23 @@
 <div id="userAccess">
-     <div class="header">Access user list</div>
+     <div class="header">Accesos por usuario</div>
      <div class="content">
-        <table id="datatable">
+        <table id="datatable" tickets-datatable="userAccessList">
             <thead>
                 <tr>
                     <th>Usuario</th>
+                    <th>Saldo actual</th>
                     <th>Número de accesos</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="userAccess in userAccessList">
                     <td align="center">{{userAccess.username}}</td>
+                    <td align="center">{{userAccess.balance}}</td>
                     <td align="center">{{userAccess.accessNumber}}</td>
+                    <td align="center">
+                        <img ng-src="/images/ico-detail.png" style="cursor:pointer" ng-click="viewUserDetail(userAccess.username)"/>
+                    </td>
                 </tr>
             </tbody>
         </table>

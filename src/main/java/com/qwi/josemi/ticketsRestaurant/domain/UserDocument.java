@@ -1,7 +1,11 @@
 package com.qwi.josemi.ticketsRestaurant.domain;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.qwi.josemi.ticketsRestaurant.dto.Movement;
 
 @Document(collection="users")
 public class UserDocument {
@@ -10,6 +14,8 @@ public class UserDocument {
 	private String id;
 	private String username;
 	private Integer accessNumber;
+	private String balance; 
+	private List<Movement> movements;
 	
 	
 	public UserDocument() {
@@ -18,11 +24,7 @@ public class UserDocument {
 	}
 
 	
-	public UserDocument(String username, Integer accessNumber) {
-		super();
-		this.username = username;
-		this.accessNumber = accessNumber;
-	}
+	
 	
 	public String getId() {
 		return id;
@@ -47,5 +49,33 @@ public class UserDocument {
 	public String toString() {
 		return "UserDocument [id=" + id + ", username=" + username
 				+ ", accessNumber=" + accessNumber + "]";
+	}
+
+
+
+
+	public String getBalance() {
+		return balance;
+	}
+
+
+
+
+	public void setBalance(String balance) {
+		this.balance = balance;
+	}
+
+
+
+
+	public List<Movement> getMovements() {
+		return movements;
+	}
+
+
+
+
+	public void setMovements(List<Movement> movements) {
+		this.movements = movements;
 	}
 }

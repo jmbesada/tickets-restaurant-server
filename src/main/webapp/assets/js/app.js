@@ -5,34 +5,60 @@
   app = angular.module('ticketsRestaurant', []);
 
   app.config(function($routeProvider) {
-    return $routeProvider.when('/', {
+    $routeProvider.when('/', {
       controller: 'UserAccessController',
       templateUrl: '/views/userAccessView.html'
     });
-  });
-
-  app.controller('UserAccessController', function($scope, $browser, JSONService) {
-    console.log('Started the UserAccessController');
-    return JSONService.getUserAccess().success(function(data) {
-      $scope.userAccessList = data;
-      return $browser.defer(function() {
-        return $('#datatable').dataTable({
-          bFilter: false,
-          aaSorting: [[1, 'desc']]
-        });
-      });
+    return $routeProvider.when('/userDetail', {
+      controller: 'UserDetailController',
+      templateUrl: '/views/userDetail.html'
     });
   });
 
-  app.directive('datatable', function() {
-    return console.log('datatable directive started');
+  app.controller('UserAccessController', function($scope, $rootScope, $browser, $location, JSONService) {
+    console.log('Started the UserAccessController');
+    JSONService.getUserAccess().success(function(data) {
+      return $scope.userAccessList = data;
+    });
+    return $scope.viewUserDetail = function(username) {
+      return JSONService.getUserInfo(username).success(function(data) {
+        $rootScope.userDetail = data;
+        return $location.path('/userDetail');
+      });
+    };
+  });
+
+  app.directive('ticketsDatatable', function($browser) {
+    return {
+      link: function($scope, element, iAttrs) {
+        var toWatch;
+
+        toWatch = element.attr('tickets-datatable');
+        return $scope.$watch(toWatch, function(newValue, oldValue) {
+          if (newValue) {
+            return $(element).dataTable({
+              bFilter: false
+            });
+          }
+        });
+      }
+    };
   });
 
   app.service('JSONService', function($http) {
     console.log('Started the JSONService');
-    return this.getUserAccess = function() {
+    this.getUserAccess = function() {
       return $http.get('/statisticsController/getUserAccess');
     };
+    return this.getUserInfo = function(username) {
+      return $http.get('/statisticsController/getUserInfo', {
+        params: {
+          'username': username
+        }
+      });
+    };
   });
+
+  app.controller('UserDetailController', function($scope, $browser, JSONService) {});
 
 }).call(this);
