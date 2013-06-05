@@ -1,17 +1,21 @@
 body{
     background-color:#F3F4F8;
+    font-family: 'Paprika', cursive;
+    font-size:14px;
 }
 #container{
     max-width:1000px;
     margin:auto;
-    font-family: Helvetica, sans-serif
+    background:#F6F8FC;
+    padding:20px;
 }
 
 #userAccess .header{
     font-weight:bold;
     font-size:2em;
     text-align:center;
-    color:#2C3F79;
+    color:#ffffff;
+    background:#18376C
 }
 
 #userAccess .content{
@@ -24,6 +28,10 @@ body{
 
 #userAccess .content table th{
     color:#2C3F79;
+}
+
+.red{
+    color:#E4554D
 }
 
 

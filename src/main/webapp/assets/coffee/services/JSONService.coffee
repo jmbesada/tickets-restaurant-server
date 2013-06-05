@@ -1,6 +1,6 @@
 app.service 'JSONService', ($http)->
   console.log 'Started the JSONService'
-  this.getUserAccess= ->
+  @getUserAccess= ->
     $http.get '/statisticsController/getUserAccess'
   
   this.getUserInfo= (username)->

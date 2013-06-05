@@ -13,7 +13,7 @@
             <tbody>
                 <tr ng-repeat="userAccess in userAccessList">
                     <td align="center">{{userAccess.username}}</td>
-                    <td align="center">{{userAccess.balance}}</td>
+                    <td align="center" class="red">{{userAccess.balance}}</td>
                     <td align="center">{{userAccess.accessNumber}}</td>
                     <td align="center">
                         <img ng-src="/images/ico-detail.png" style="cursor:pointer" ng-click="viewUserDetail(userAccess.username)"/>
