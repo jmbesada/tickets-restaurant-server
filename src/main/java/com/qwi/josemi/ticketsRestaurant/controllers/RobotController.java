@@ -37,6 +37,7 @@ public class RobotController {
 	public void getData(@RequestParam String username, @RequestParam String password, @RequestParam String date,
 			HttpServletResponse response) throws Exception{
 		logger.info(username+"->"+password+"-"+date);
+		logger.info(System.getProperty("spring.profiles.active"));
 		UserDocument userDocument=userRepository.findByUsername(username);
 		logger.info("User found:"+userDocument);
 		if (userDocument == null) {

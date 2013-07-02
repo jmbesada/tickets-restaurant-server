@@ -42,19 +42,19 @@
         <version>1.2.2</version>
         
     </dependency>
-  	<!--<dependency>
-  		<groupId>org.apache.activemq</groupId>
-  		<artifactId>activemq-spring</artifactId>
-  		<version>5.8.0</version>
+  	<dependency>
+  		<groupId>org.cloudfoundry</groupId>
+  		<artifactId>cloudfoundry-runtime</artifactId>
+  		<version>0.8.4</version>
   	</dependency>
-  	-->
+  	
   </dependencies>
   
   <repositories>
     <repository>
           <id>org.springframework.maven.milestone</id>
            <name>Spring Maven Milestone Repository</name>
-           <url>http://maven.springframework.org/milestone</url>
+           <url>http://repo.springsource.org/milestone</url>
            <snapshots>
                    <enabled>false</enabled>
            </snapshots>
@@ -76,8 +76,15 @@
                 <reload>manual</reload>
                 <webApp>
                     <contextPath>/</contextPath>
-                </webApp>  
+                </webApp>
+                 <systemProperties>
+                    <systemProperty>
+                        <name>spring.profiles.active</name>
+                        <value>local</value>
+                    </systemProperty>
+                </systemProperties>  
             </configuration>
+           
         </plugin> 
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
